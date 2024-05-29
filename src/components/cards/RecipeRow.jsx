@@ -1,10 +1,11 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 /* eslint-disable react/prop-types */
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (id) => {
+    toast("Edited successfully");
       await axios.delete(`http://localhost:3000/recipes/${id}`)
       .then((response) => {
        console.log("Record deleted:", response?.data);
@@ -13,7 +14,6 @@ export default function RecipeRow({ recipe }) {
        console.error("Error >>>>:", error);
      });
     };
-    // const toasting = () => toast("Edited successfully");
   return (
     <tr>
       <th>{recipe?.id}</th>
