@@ -30,6 +30,9 @@ export default function DashbaordLayout() {
           {/* Sidebar content here */}
           <div>
             <li>
+              <Link to={"/dashboard/profile"}>My Profile</Link>
+            </li>
+            <li>
               <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link>
             </li>
             <li>

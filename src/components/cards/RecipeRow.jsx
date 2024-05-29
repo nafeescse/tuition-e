@@ -5,14 +5,15 @@ import Swal from "sweetalert2";
 /* eslint-disable react/prop-types */
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (id) => {
-    
       await axios.delete(`http://localhost:3000/recipes/${id}`)
       .then((response) => {
        console.log("Record deleted:", response?.data);
        Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: `Recipe of ${response?.data?.title} is deleted!!!`
+        text: `Recipe of "${response?.data?.title}" is deleted!!!`,
+        showConfirmButton: false,
+        timer: 1500
       });
      })
      .catch((error) => {

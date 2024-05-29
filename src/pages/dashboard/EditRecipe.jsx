@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate,  useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+// import { useHistory } from 'react-router-dom';
 
 const EditRecipe = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [recipeDetails, setRecipeDetails] = useState();
   const [categories, setCategories] = useState();
@@ -19,11 +21,10 @@ const EditRecipe = () => {
         setCategories(categoriesData?.data);
       }
 
-
       const recipeData = await axios.get(`http://localhost:3000/recipes/${id}`);
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);
-        console.log(recipeData?.data?.id);
+        console.log("Data loaded of id:", recipeData?.data?.id);
       }
     }
     load();
@@ -36,6 +37,7 @@ const EditRecipe = () => {
     const price = form.price.value;
     const category = form.category.value;
     const description = form.description.value;
+
     const recipeData = {
       id,
       title,
@@ -44,21 +46,24 @@ const EditRecipe = () => {
       description,
     };
 
-    await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData);
-    if (recipeData?.status === 200) {
-      setRecipeDetails(recipeData?.data);
+    await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData)
+    .then(response => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `Recipe of ${recipeData?.data?.title} is edited successfully!!!`,
+        title: `Recipe of "${response?.data?.title}" is edited successfully!!!`,
         showConfirmButton: false,
-        timer: 10000
+        timer: 1500,
       });
-      
-      console.log("Edited", recipeData?.data?.title);
-    }
+      console.log('Recipe Details updated:', response?.data);
+      {response?.status === 200  && (
+        navigate('/dashboard/manage-recipes')
+      ) && console.log("333")}
+    })
+    .catch(error => {
+      console.error('Error updating Recipe Details:', error);  
+    });
     
-
   };
   return (
     <div className="w-full px-16">
@@ -106,14 +111,14 @@ const EditRecipe = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <input
-            
+        <div>
+        <input      
             type="submit"
             value={"Edit Recipe"}
-            className="w-full btn py-3 px-5 border btn-neutral"
-          />
+            className="w-full btn py-3 px-5 border btn-neutral"/>
         </div>
+        
+          
       </form>
     </div>
   );

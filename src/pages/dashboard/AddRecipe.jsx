@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddRecipe = () => {
   const [categories, setCategories] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function load() {
@@ -26,6 +28,7 @@ const AddRecipe = () => {
     const price = form.price.value;
     const category = form.category.value;
     const description = form.description.value;
+
     const recipeData = {
       id,
       title,
@@ -34,16 +37,29 @@ const AddRecipe = () => {
       description,
     };
 
-    await axios.post("http://localhost:3000/recipes", recipeData);
-    if (recipeData?.status === 200) {
+    await axios.post("http://localhost:3000/recipes", recipeData)
+    .then(response => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `Recipe of ${recipeData?.data?.title} is edited successfully!!!`,
+        title: `Recipe of "${response?.data?.title}" is added successfully!!!`,
         showConfirmButton: false,
-        timer: 10000
+        timer: 1000,
       });
-    }
+
+      {recipeData  && 
+        
+        navigate('/dashboard/manage-recipes')
+      && 
+        console.log('Recipe Details added:', response?.data)}
+
+
+    })
+    .catch(error => {
+      console.error('Error adding Recipe Details:', error);
+    });
+
+  
   };
   return (
     <div className="w-full px-16">

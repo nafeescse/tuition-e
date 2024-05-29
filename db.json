@@ -2,15 +2,15 @@
   "recipes": [
     {
       "id": "4",
-      "title": "Tacos al Past",
-      "price": "10.99",
+      "title": "Tacos al Pasta",
+      "price": "11.99",
       "description": "Flavorful marinated pork served on small corn tortillas with pineapple and onions.",
       "image": "https://example.com/images/tacos-al-pastor.jpg",
-      "category": "Mexican"
+      "category": "Japanese"
     },
     {
       "id": "5",
-      "title": "Pad Thai",
+      "title": "Thai Veg paneer",
       "price": "199.99",
       "description": "A stir-fried rice noodle dish with shrimp, tofu, peanuts, and tamarind sauce.",
       "image": "https://example.com/images/pad-thai.jpg",
@@ -19,14 +19,14 @@
     {
       "id": "6",
       "title": "Beef Wellington",
-      "price": 29.99,
+      "price": "29.99",
       "description": "Tender beef filet wrapped in puff pastry with duxelles and prosciutto.",
       "image": "https://example.com/images/beef-wellington.jpg",
       "category": "British"
     },
     {
       "id": "7",
-      "title": "Falafel Wrappy",
+      "title": "Falafel Wrappggggggggg",
       "price": "8.99",
       "description": "Crispy falafel balls wrapped in a pita with hummus, tahini, and fresh vegetables.",
       "image": "https://example.com/images/falafel-wrap.jpg",
@@ -34,9 +34,9 @@
     },
     {
       "id": "10",
-      "title": "Vegetable Stir Fry 230978",
+      "title": "Vegetable Stir Fry 23",
       "price": "9.99",
-      "description": "A mix of fresh vegetables stir-fried with soy sauce and served over rice.",
+      "description": "A mix of fresh vegetables stir-fried with soy sauce and served over.",
       "image": "https://example.com/images/vegetable-stir-fry.jpg",
       "category": "Chinese"
     },
@@ -50,8 +50,8 @@
     },
     {
       "id": "13",
-      "title": "Tempura",
-      "price": 14.99,
+      "title": "Tempure",
+      "price": "14.99",
       "description": "Lightly battered and deep-fried seafood and vegetables.",
       "image": "https://example.com/images/tempura.jpg",
       "category": "Japanese"
@@ -59,18 +59,10 @@
     {
       "id": "14",
       "title": "Ramen",
-      "price": 12.99,
+      "price": "12.99",
       "description": "A hearty Japanese noodle soup with meat, vegetables, and broth.",
       "image": "https://example.com/images/ramen.jpg",
       "category": "Japanese"
-    },
-    {
-      "id": "147",
-      "title": "test1111",
-      "price": "7878",
-      "category": "Mexican",
-      "descrition": "test",
-      "description": "gukufuyfrufuh"
     },
     {
       "id": "66",
@@ -85,6 +77,69 @@
       "price": "346",
       "category": "Indian",
       "description": "hjfhfhf"
+    },
+    {
+      "id": "34",
+      "title": "gf",
+      "price": "767",
+      "category": "Italian",
+      "description": "ggggggggg"
+    },
+    {
+      "id": "104",
+      "title": "ssss",
+      "price": "22",
+      "category": "Middle Eastern",
+      "description": "ddddddddddddddd"
+    },
+    {
+      "id": "509",
+      "title": "hhhh",
+      "price": "555",
+      "category": "Italian",
+      "description": "ddddddddddddd"
+    },
+    {
+      "id": "343",
+      "title": "dffdsgv",
+      "price": "333",
+      "category": "Italian",
+      "description": "33dafddsaf"
+    },
+    {
+      "id": "345",
+      "title": "ggg",
+      "price": "876",
+      "category": "Italian",
+      "description": "gldgkhdgh"
+    },
+    {
+      "id": "555",
+      "title": "eeeee",
+      "price": "233",
+      "category": "Italian",
+      "description": "efsdf"
+    },
+    {
+      "id": "987",
+      "title": "hhhh",
+      "price": "888",
+      "category": "Italian",
+      "description": "gbggbggg"
+    },
+    {
+      "id": "4556",
+      "title": "hhhh",
+      "price": "345",
+      "category": "Italian",
+      "description": "kjkjgfdds"
+    },
+    {
+      "id": "143",
+      "title": "qafdaedfe",
+      "price": "245",
+      "category": "Italian",
+      "description": "ffffffffffff"
     }
   ],
   "categories": [
