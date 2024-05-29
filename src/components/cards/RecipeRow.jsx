@@ -33,7 +33,7 @@ export default function RecipeRow({ recipe }) {
         >
           Edit
         </Link>
-        <button onClick={handleClickDelete(recipe?.id)} className="btn btn-xs btn-error">Delete</button>
+        <button onClick={() => handleClickDelete(recipe?.id)} className="btn btn-xs btn-error">Delete</button>
       </td>
     </tr>
   );
