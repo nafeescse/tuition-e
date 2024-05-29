@@ -1,14 +1,19 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (id) => {
-    toast("Edited successfully");
+    
       await axios.delete(`http://localhost:3000/recipes/${id}`)
       .then((response) => {
        console.log("Record deleted:", response?.data);
+       Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `Recipe of ${response?.data?.title} is deleted!!!`
+      });
      })
      .catch((error) => {
        console.error("Error >>>>:", error);

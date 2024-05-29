@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const EditRecipe = () => {
   const { id } = useParams();
@@ -11,6 +11,7 @@ const EditRecipe = () => {
 
   useEffect(() => {
     async function load() {
+
       const categoriesData = await axios.get(
         "http://localhost:3000/categories"
       );
@@ -18,20 +19,19 @@ const EditRecipe = () => {
         setCategories(categoriesData?.data);
       }
 
+
       const recipeData = await axios.get(`http://localhost:3000/recipes/${id}`);
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);
+        console.log(recipeData?.data?.id);
       }
     }
-
     load();
   }, [id]);
 
-  const handleCreateRecipe = async (e) => {
+  const handleEditRecipe = async (e) => {
     e.preventDefault();
-
     const form = e.target;
-
     const title = form.title.value;
     const price = form.price.value;
     const category = form.category.value;
@@ -45,13 +45,25 @@ const EditRecipe = () => {
     };
 
     await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData);
+    if (recipeData?.status === 200) {
+      setRecipeDetails(recipeData?.data);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `Recipe of ${recipeData?.data?.title} is edited successfully!!!`,
+        showConfirmButton: false,
+        timer: 10000
+      });
+      
+      console.log("Edited", recipeData?.data?.title);
+    }
+    
 
   };
-  const toasting = () => toast("Edited successfully");
   return (
     <div className="w-full px-16">
       <h1 className="text-4xl mb-4">Edit Recipe</h1>
-      <form onSubmit={handleCreateRecipe} onClick={toasting}className="w-full">
+      <form onSubmit={handleEditRecipe} className="w-full">
         <div className="mb-4">
           <label htmlFor="">Title </label>
           <input

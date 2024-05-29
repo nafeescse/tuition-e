@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const AddRecipe = () => {
   const [categories, setCategories] = useState();
@@ -20,7 +21,6 @@ const AddRecipe = () => {
     e.preventDefault();
 
     const form = e.target;
-
     const id = form.id.value;
     const title = form.title.value;
     const price = form.price.value;
@@ -35,6 +35,15 @@ const AddRecipe = () => {
     };
 
     await axios.post("http://localhost:3000/recipes", recipeData);
+    if (recipeData?.status === 200) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `Recipe of ${recipeData?.data?.title} is edited successfully!!!`,
+        showConfirmButton: false,
+        timer: 10000
+      });
+    }
   };
   return (
     <div className="w-full px-16">
