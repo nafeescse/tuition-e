@@ -5,48 +5,37 @@ import Swal from "sweetalert2";
 // import { useHistory } from 'react-router-dom';
 
 const EditRecipe = () => {
-  const { id } = useParams();
+  const { title } = useParams();
   const navigate = useNavigate();
 
   const [recipeDetails, setRecipeDetails] = useState();
-  const [categories, setCategories] = useState();
 
   useEffect(() => {
     async function load() {
 
-      const categoriesData = await axios.get(
-        "http://localhost:3000/categories"
-      );
-      if (categoriesData?.status === 200) {
-        setCategories(categoriesData?.data);
-      }
-
-      const recipeData = await axios.get(`http://localhost:3000/recipes/${id}`);
+      const recipeData = await axios.get(`http://localhost:3000/recipes/${title}`);
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);
-        console.log("Data loaded of id:", recipeData?.data?.id);
+        console.log("Data loaded of title:", recipeData?.data?.title);
       }
     }
     load();
-  }, [id]);
+  }, [title]);
 
   const handleEditRecipe = async (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
     const price = form.price.value;
-    const category = form.category.value;
     const description = form.description.value;
 
     const recipeData = {
-      id,
       title,
       price,
-      category,
       description,
     };
 
-    await axios.patch(`http://localhost:3000/recipes/${id}`, recipeData)
+    await axios.patch(`http://localhost:3000/recipes/${title}`, recipeData)
     .then(response => {
       Swal.fire({
         position: "top-end",
@@ -87,20 +76,7 @@ const EditRecipe = () => {
             className="w-full py-3 px-5 border"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="">Cateogry </label>
-          <select name="category" id="" className="w-full py-3 px-5 border">
-            {categories?.map((category) => (
-              <option
-                key={category?.title}
-                selected={category?.title === recipeDetails?.category}
-                value={category?.title}
-              >
-                {category?.title}
-              </option>
-            ))}
-          </select>
-        </div>
+        
 
         <div className="mb-4">
           <label htmlFor="">Description </label>

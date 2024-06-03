@@ -34,14 +34,14 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>All Recepies</a>
-            </li>
-            <li>
-              <a>About Us</a>
-            </li>
-            <li>
-              <a>Contact Us</a>
-            </li>
+          <Link to={"/all-recipes"}>All Recipes</Link>
+          </li>
+          <li>
+            <Link to={"/about"}>About Us</Link>
+          </li>
+          <li>
+            <a>Contact Us</a>
+          </li>
           </ul>
         </div>
         <a className=" text-xl">Ranna-Ghor</a>
@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center gap-6 px-1">
           <li>
-            <a>All Recepies</a>
+          <Link to={"/recipes"}>All Recipes</Link>
           </li>
           <li>
             <Link to={"/about"}>About Us</Link>
