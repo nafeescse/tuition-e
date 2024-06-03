@@ -5,22 +5,21 @@ import Swal from "sweetalert2";
 // import { useHistory } from 'react-router-dom';
 
 const EditRecipe = () => {
-  const { title } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [recipeDetails, setRecipeDetails] = useState();
 
   useEffect(() => {
     async function load() {
-
-      const recipeData = await axios.get(`http://localhost:3000/recipes/${title}`);
+      const recipeData = await axios.get(`http://localhost:5000/recipes/${id}`);
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);
         console.log("Data loaded of title:", recipeData?.data?.title);
       }
     }
     load();
-  }, [title]);
+  }, [id]);
 
   const handleEditRecipe = async (e) => {
     e.preventDefault();
@@ -35,7 +34,7 @@ const EditRecipe = () => {
       description,
     };
 
-    await axios.patch(`http://localhost:3000/recipes/${title}`, recipeData)
+    await axios.patch(`http://localhost:5000/recipes/${id}`, recipeData)
     .then(response => {
       Swal.fire({
         position: "top-end",

@@ -12,6 +12,7 @@ import AddRecipe from "../pages/dashboard/AddRecipe";
 import EditRecipe from "../pages/dashboard/EditRecipe";
 import Profile from "../pages/dashboard/Profile";
 import AllRecipes from "../pages/AllRecipes";
+import RecepiCard from "../components/cards/RecepiCard";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,13 @@ export const router = createBrowserRouter([
   {
     path: "/recipes",
     element: <AllRecipes />,
+  },
+
+  {
+    path: "/recipes/:id",
+    element: <RecepiCard />,
+    loader: ({params}) => 
+      fetch(`http://localhost:5000/recipe/${params.id}`)
   },
   {
     path: "/dashboard",
