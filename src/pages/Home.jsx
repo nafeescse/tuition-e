@@ -13,7 +13,7 @@ export default function Home() {
 
     async function load() {
       //get recipies
-      const recipeRes = await fetch("http://localhost:5000/recipes");
+      const recipeRes = await fetch("https://tuition-e-server.vercel.app/recipes");
       const recipeData = await recipeRes.json();
       setRescipes(recipeData);
       //get categories
