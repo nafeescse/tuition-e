@@ -22,7 +22,7 @@ const AddRecipe = () => {
     };
 
     await axios
-      .post("https://tuition-e-server.vercel.app/tuitions", recipeData)
+      .post("https://tuition-e-server.onrender.com/tuitions", recipeData)
       .then((response) => {
         Swal.fire({
           position: "top-end",

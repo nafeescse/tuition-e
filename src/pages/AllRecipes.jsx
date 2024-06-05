@@ -4,14 +4,14 @@ import RecepiCard from "../components/cards/RecepiCard";
 export default function AllRecipes() {
   const [recipes, setRescipes] = useState();
   useEffect(() => {
-    // fetch("https://tuition-e-server.vercel.app/tuitions")
+    // fetch("https://tuition-e-server.onrender.com/tuitions")
     //   .then((res) => res.json())
     //   .then((data) => setRescipes(data));
 
     async function load() {
       //get recipies
       const recipeRes = await fetch(
-        "https://tuition-e-server.vercel.app/tuitions"
+        "https://tuition-e-server.onrender.com/tuitions"
       );
       const recipeData = await recipeRes.json();
       setRescipes(recipeData);
