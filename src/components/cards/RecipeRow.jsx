@@ -5,24 +5,23 @@ import Swal from "sweetalert2";
 /* eslint-disable react/prop-types */
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (_id) => {
-
-
-      await axios.delete(`http://localhost:5000/recipes/${_id}`)
+    await axios
+      .delete(`https://tuition-e-server.vercel.app/recipes/${_id}`)
       .then((response) => {
-       console.log("Record deleted:", response?.data);
-       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: `Recipe of "${_id}" is deleted!!!`,
-        showConfirmButton: false,
-        timer: 1500
+        console.log("Record deleted:", response?.data);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Recipe of "${_id}" is deleted!!!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error >>>>:", error);
       });
-      window.location.reload();
-     })
-     .catch((error) => {
-       console.error("Error >>>>:", error);
-     });
-    };
+  };
   return (
     <tr>
       <th>{recipe?._id}</th>
@@ -42,7 +41,12 @@ export default function RecipeRow({ recipe }) {
         >
           Edit
         </Link>
-        <button onClick={() => handleClickDelete(recipe?._id)} className="btn btn-xs btn-error">Delete</button>
+        <button
+          onClick={() => handleClickDelete(recipe?._id)}
+          className="btn btn-xs btn-error"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const AddRecipe = () => {
   const navigate = useNavigate();
 
-
   const handleCreateRecipe = async (e) => {
     e.preventDefault();
 
@@ -22,28 +21,27 @@ const AddRecipe = () => {
       description,
     };
 
-    await axios.post("http://localhost:5000/recipes", recipeData)
-    .then(response => {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `Recipe of "${response?.data?.title}" is added successfully!!!`,
-        showConfirmButton: false,
-        timer: 1000,
+    await axios
+      .post("https://tuition-e-server.vercel.app/recipes", recipeData)
+      .then((response) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Recipe of "${response?.data?.title}" is added successfully!!!`,
+          showConfirmButton: false,
+          timer: 1000,
+        });
+        form.reset();
+
+        {
+          recipeData &&
+            navigate("/dashboard/manage-recipes") &&
+            console.log("Recipe Details added:", response?.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding Recipe Details:", error);
       });
-      form.reset();
-
-      {recipeData  && 
-        
-        navigate('/dashboard/manage-recipes')
-      && 
-        console.log('Recipe Details added:', response?.data)}
-    })
-    .catch(error => {
-      console.error('Error adding Recipe Details:', error);
-    });
-
-  
   };
   return (
     <div className="w-full px-16">

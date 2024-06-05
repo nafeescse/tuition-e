@@ -7,7 +7,7 @@ import RecepiCard from "../components/cards/RecepiCard";
 export default function Home() {
   const [recipes, setRescipes] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/recipes")
+    fetch("https://tuition-e-server.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => {
         setRescipes(data);

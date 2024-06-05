@@ -45,8 +45,8 @@ export const router = createBrowserRouter([
   {
     path: "/recipes/:id",
     element: <RecepiCard />,
-    loader: ({params}) => 
-      fetch(`http://localhost:5000/recipe/${params.id}`)
+    loader: ({ params }) =>
+      fetch(`https://tuition-e-server.vercel.app/recipe/${params.id}`),
   },
   {
     path: "/dashboard",
