@@ -7,7 +7,7 @@ export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (_id) => {
 
 
-      await axios.delete(`https://tuition-e-server.vercel.app/recipes/${_id}`)
+      await axios.delete(`http://localhost:5000/recipes/${_id}`)
       .then((response) => {
        console.log("Record deleted:", response?.data);
        Swal.fire({

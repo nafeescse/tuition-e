@@ -67,7 +67,7 @@ export default function Register() {
               />
             </div>
             <div className="form-control mt-2">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Register</button>
               <p className="text-center">
                 Already have an account ?{" "}
                 <Link to={"/login"} className="text-orange-500">

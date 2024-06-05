@@ -1,9 +1,14 @@
-import { useSignOut } from "react-firebase-hooks/auth";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase.config";
 import { Link, Outlet } from "react-router-dom";
 
 export default function DashbaordLayout() {
   const [signOut] = useSignOut(auth);
+  const [user] = useAuthState(auth);
+
+  if (user) {
+    console.log(user);
+  }
 
   const handleLogout = async () => {
     await signOut();

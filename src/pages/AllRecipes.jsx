@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 import RecepiCard from "../components/cards/RecepiCard";
 
 export default function AllRecipes() {
-    const [recipes, setRescipes] = useState();
-    useEffect(() => {
-      // fetch("https://tuition-e-server.vercel.app/recipes")
-      //   .then((res) => res.json())
-      //   .then((data) => setRescipes(data));
-  
-      async function load() {
-        //get recipies
-        const recipeRes = await fetch("https://tuition-e-server.vercel.app/recipes");
-        const recipeData = await recipeRes.json();
-        setRescipes(recipeData);
-      }
-      load();
-    }, []);
-  
-    console.log("all recipes got from All ");
+  const [recipes, setRescipes] = useState();
+  useEffect(() => {
+    // fetch("http://localhost:5000/recipes")
+    //   .then((res) => res.json())
+    //   .then((data) => setRescipes(data));
+
+    async function load() {
+      //get recipies
+      const recipeRes = await fetch("http://localhost:5000/recipes");
+      const recipeData = await recipeRes.json();
+      setRescipes(recipeData);
+    }
+    load();
+  }, []);
+
+  console.log("all data loaded from All ");
   return (
     <div>
       <h1>All Recipes</h1>
@@ -33,5 +33,5 @@ export default function AllRecipes() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -6,7 +6,7 @@ export default function ManageAllRecipe() {
   const [recipes, setRescipes] = useState();
   useEffect(() => {
     async function load() {
-      const data = await axios.get("https://tuition-e-server.vercel.app/recipes");
+      const data = await axios.get("http://localhost:5000/recipes");
       if (data?.status === 200) {
         setRescipes(data?.data);
       }

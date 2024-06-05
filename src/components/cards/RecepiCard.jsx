@@ -3,7 +3,7 @@ import pizza from "../../assets/pizza.webp";
 
 export default function RecepiCard({ recipe }) {
   return (
-    <div className="card  bg-base-100 shadow-xl">
+    <div className="card  bg-base-100 shadow-xl bg-cyan-300">
       <figure>
         <img src={pizza} alt="food" className="max-w-50" />
       </figure>
@@ -16,7 +16,6 @@ export default function RecepiCard({ recipe }) {
             : recipe?.description}
         </p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">{recipe?.category}</div>
         </div>
       </div>
     </div>

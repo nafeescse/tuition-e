@@ -1,10 +1,11 @@
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/firebase.config";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase/firebase.config";
 
-export default function Navbar() {
+function Navbar() {
   const [user] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
+  console.log(user?.name);
 
   const handleLogout = async () => {
     await signOut();
@@ -34,37 +35,58 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-          <Link to={"/all-recipes"}>All Recipes</Link>
-          </li>
-          <li>
-            <Link to={"/about"}>About Us</Link>
-          </li>
-          <li>
-            <a>Contact Us</a>
-          </li>
+              <Link to={"/recipes"}>All Tuitions</Link>
+            </li>
+            <li>
+              <Link to={"/recipes"}>All Tutors</Link>
+            </li>
+            <li>
+              <Link to={"/recipes"}>All Courses</Link>
+            </li>
+            <li>
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </li>
+            <li>
+              <a>Contact Us</a>
+            </li>
           </ul>
         </div>
-        <a className=" text-xl">Ranna-Ghor</a>
+        <a className=" text-4xl text-bold text-cyan-400">Private Scholar</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center gap-6 px-1">
           <li>
-          <Link to={"/recipes"}>All Recipes</Link>
+            <Link to={"/recipes"}>All Tuitions</Link>
           </li>
           <li>
-            <Link to={"/about"}>About Us</Link>
+            <Link to={"/recipes"}>All Tutors</Link>
           </li>
           <li>
-            <a>Contact Us</a>
+            <Link to={"/recipes"}>All Courses</Link>
           </li>
+          <li>
+            <Link to={"/about"}>Contact Us</Link>
+          </li>
+          <li>
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </li>
+{/* 
+          {user?.email ? (
+            <li>
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </li>
+          ) : (
+            <h1 className="text-red-700 text-bold">Plz log In</h1>
+          )} */}
         </ul>
       </div>
-      {!user?.email ? (
+
+      {!user?.displayName ? (
         <div className="navbar-end flex gap-4">
-          <Link to={"/login"} className="btn">
+          <Link to={"/login"} className="btn bg-red-500 text-white">
             Login
           </Link>
-          <Link to={"/register"} className="btn">
+          <Link to={"/register"} className="btn btn-neutral text-white">
             Registration
           </Link>
         </div>
@@ -76,11 +98,13 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <button className="btn bg-red-500 text-white" onClick={handleLogout}>
+            <button
+              className="btn bg-red-500 text-white"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>
-          
 
           <div className="avatar placeholder">
             <div className="bg-neutral text-neutral-content rounded-full w-12">
@@ -92,3 +116,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+export default Navbar;
