@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (_id) => {
     await axios
-      .delete(`https://tuition-e-server.vercel.app/recipes/${_id}`)
+      .delete(`https://tuition-e-server.vercel.app/tuitions/${_id}`)
       .then((response) => {
         console.log("Record deleted:", response?.data);
         Swal.fire({
@@ -30,7 +30,7 @@ export default function RecipeRow({ recipe }) {
       <td>{recipe?.category}</td>
       <td className="flex gap-4">
         <Link
-          to={`/dashboard/recipes/${recipe?._id}`}
+          to={`/dashboard/tuitions/${recipe?._id}`}
           className="btn btn-xs bg-blue-500 text-white"
         >
           Details

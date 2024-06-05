@@ -38,12 +38,12 @@ export const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/recipes",
+    path: "/tuitions",
     element: <AllRecipes />,
   },
 
   {
-    path: "/recipes/:id",
+    path: "/tuitions/:id",
     element: <RecepiCard />,
     loader: ({ params }) =>
       fetch(`https://tuition-e-server.vercel.app/recipe/${params.id}`),

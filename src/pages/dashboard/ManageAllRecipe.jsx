@@ -7,7 +7,7 @@ export default function ManageAllRecipe() {
   useEffect(() => {
     async function load() {
       const data = await axios.get(
-        "https://tuition-e-server.vercel.app/recipes"
+        "https://tuition-e-server.vercel.app/tuitions"
       );
       if (data?.status === 200) {
         setRescipes(data?.data);

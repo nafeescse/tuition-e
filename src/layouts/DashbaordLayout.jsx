@@ -38,10 +38,10 @@ export default function DashbaordLayout() {
               <Link to={"/dashboard/profile"}>My Profile</Link>
             </li>
             <li>
-              <Link to={"/dashboard/manage-recipes"}>Mangae All Recipes</Link>
+              <Link to={"/dashboard/manage-tuitions"}>Mangae All Tuitions</Link>
             </li>
             <li>
-              <Link to={"/dashboard/add-recipe"}>Add Recipe</Link>
+              <Link to={"/dashboard/add-tuition"}>Add Tuitions</Link>
             </li>
           </div>
           <div className="flex gap-4">

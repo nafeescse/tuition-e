@@ -35,13 +35,13 @@ function Navbar() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to={"/recipes"}>All Tuitions</Link>
+              <Link to={"/tuitions"}>All Tuitions</Link>
             </li>
             <li>
-              <Link to={"/recipes"}>All Tutors</Link>
+              <Link to={"/tuitions"}>All Tutors</Link>
             </li>
             <li>
-              <Link to={"/recipes"}>All Courses</Link>
+              <Link to={"/tuitions"}>All Courses</Link>
             </li>
             <li>
               <Link to={"/dashboard"}>Dashboard</Link>
@@ -56,21 +56,21 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center gap-6 px-1">
           <li>
-            <Link to={"/recipes"}>All Tuitions</Link>
+            <Link to={"/tuitions"}>All Tuitions</Link>
           </li>
           <li>
-            <Link to={"/recipes"}>All Tutors</Link>
+            <Link to={"/tuitions"}>All Tutors</Link>
           </li>
           <li>
-            <Link to={"/recipes"}>All Courses</Link>
+            <Link to={"/tuitions"}>All Courses</Link>
           </li>
           <li>
             <Link to={"/about"}>Contact Us</Link>
           </li>
           <li>
-              <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
-{/* 
+            <Link to={"/dashboard"}>Dashboard</Link>
+          </li>
+          {/* 
           {user?.email ? (
             <li>
               <Link to={"/dashboard"}>Dashboard</Link>

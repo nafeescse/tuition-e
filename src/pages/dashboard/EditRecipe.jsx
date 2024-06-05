@@ -13,7 +13,7 @@ const EditRecipe = () => {
   useEffect(() => {
     async function load() {
       const recipeData = await axios.get(
-        `https://tuition-e-server.vercel.app/recipes/${id}`
+        `https://tuition-e-server.vercel.app/tuitions/${id}`
       );
       if (recipeData?.status === 200) {
         setRecipeDetails(recipeData?.data);
@@ -37,7 +37,7 @@ const EditRecipe = () => {
     };
 
     await axios
-      .patch(`https://tuition-e-server.vercel.app/recipes/${id}`, recipeData)
+      .patch(`https://tuition-e-server.vercel.app/tuitions/${id}`, recipeData)
       .then((response) => {
         Swal.fire({
           position: "top-end",
@@ -49,7 +49,7 @@ const EditRecipe = () => {
         console.log("Recipe Details updated:", response?.data);
         {
           response?.status === 200 &&
-            navigate("/dashboard/manage-recipes") &&
+            navigate("/dashboard/manage-tuitions") &&
             console.log("333");
         }
       })

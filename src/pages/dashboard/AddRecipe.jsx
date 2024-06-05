@@ -22,7 +22,7 @@ const AddRecipe = () => {
     };
 
     await axios
-      .post("https://tuition-e-server.vercel.app/recipes", recipeData)
+      .post("https://tuition-e-server.vercel.app/tuitions", recipeData)
       .then((response) => {
         Swal.fire({
           position: "top-end",
@@ -35,7 +35,7 @@ const AddRecipe = () => {
 
         {
           recipeData &&
-            navigate("/dashboard/manage-recipes") &&
+            navigate("/dashboard/manage-tuitions") &&
             console.log("Recipe Details added:", response?.data);
         }
       })
