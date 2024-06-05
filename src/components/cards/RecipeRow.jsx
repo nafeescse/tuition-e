@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 export default function RecipeRow({ recipe }) {
   const handleClickDelete = async (_id) => {
     await axios
-      .delete(`https://tuition-e-server.onrender.com/tuitions/${_id}`)
+      .delete(`https://tuition-e-server.vercel.app/tuitions/${_id}`)
       .then((response) => {
         console.log("Record deleted:", response?.data);
         Swal.fire({

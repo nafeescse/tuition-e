@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
     path: "/tuitions/:id",
     element: <RecepiCard />,
     loader: ({ params }) =>
-      fetch(`https://tuition-e-server.onrender.com/tuition/${params.id}`),
+      fetch(`https://tuition-e-server.vercel.app/tuition/${params.id}`),
   },
   {
     path: "/dashboard",
