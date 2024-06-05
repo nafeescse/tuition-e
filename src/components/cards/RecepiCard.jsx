@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import pizza from "../../assets/pizza.webp";
+import pizza from "../../assets/pizza.jpg";
 
 export default function RecepiCard({ recipe }) {
   return (
@@ -15,8 +15,7 @@ export default function RecepiCard({ recipe }) {
             ? recipe?.description?.slice(0, 30)
             : recipe?.description}
         </p>
-        <div className="card-actions justify-end">
-        </div>
+        <div className="card-actions justify-end"></div>
       </div>
     </div>
   );
